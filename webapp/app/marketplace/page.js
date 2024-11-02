@@ -1,5 +1,5 @@
 function Page() {
-  return <h1>MARKETPLACE</h1>;
+  return ();
 }
 
 export default Page;

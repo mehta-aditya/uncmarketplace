@@ -4,7 +4,7 @@ Tar Heel Trade allows UNC Students to create an account and create posts with un
 # Tech Stack
 - React
 - Firebase
-- JavaScript
+- JavaScript  
 We used React for the frontend and Firebase and JavaScript for the backend
 
 # Features
@@ -12,10 +12,7 @@ We used React for the frontend and Firebase and JavaScript for the backend
 - Category tabs
 
 # CREDITS:
-Rajbalan Yogarajan, 
-Aditya Mehta,  
-Luke Novak,  
-Chloe Smith,  
+Rajbalan Yogarajan, Aditya Mehta, Luke Novak, Chloe Smith
 
 
 

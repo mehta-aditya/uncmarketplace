@@ -9,7 +9,6 @@ function Page() {
   const router = useRouter();
 
   const handleForm = async (event) => {
-    console.log("HIIII");
     event.preventDefault();
 
     const { result, error } = await signIn(email, password);

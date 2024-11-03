@@ -117,6 +117,9 @@ function Page() {
                 </a>
               </li>
               <li>
+                <a href="/listing">Make Posting</a>
+              </li>
+              <li>
                 <a href="#">Sign Out</a>
               </li>
             </ul>
@@ -131,7 +134,7 @@ function Page() {
               <Posting
                 image_uri={listing.fileid}
                 name={listing.description}
-                price={listing.price}
+                price={"$"+listing.price}
               />
             </li>
           ))}

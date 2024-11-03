@@ -32,7 +32,7 @@ function Page() {
         <div id="sidenav">
             <ul>
                 <li><a href="/marketplace">Home</a></li>
-                <li><a href="#">Sign Out</a></li>
+                <li><a href="/">Sign Out</a></li>
 
             </ul>
         </div>

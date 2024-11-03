@@ -19,20 +19,20 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="font-mono flex-col flex bg-secondary text-white bg-blue-200">
-        <div className="flex justify-between items-center h-16 p-10 py-16 mr-1">
-          <div className="cursor-pointer tracking-widest">
-            <Link href="/" className="lg:text-5xl text-2xl">
+      <div classNameName="font-mono flex-col flex bg-secondary text-white bg-blue-200">
+        <div classNameName="flex justify-between items-center h-16 p-10 py-16 mr-1">
+          <div classNameName="cursor-pointer tracking-widest">
+            <Link href="/" classNameName="lg:text-5xl text-2xl">
               Tar Heel Trade
             </Link>
           </div>
 
-          <div className="items-center block">
+          <div classNameName="items-center block">
             {navbarLinks.map((link) => (
               <Link
                 href={link.href}
                 key={link.name}
-                className="tracking-wider
+                classNameName="tracking-wider
                 hover:text-white-500 ml-10 hover:underline hidden lg:inline text-3xl"
               >
                 {link.name}
@@ -41,7 +41,7 @@ const Navbar = () => {
 
             {dropdownOpen ? (
               <div
-                className="lg:hidden cursor-pointer hover:scale-110 transition"
+                classNameName="lg:hidden cursor-pointer hover:scale-110 transition"
                 onClick={() => setDropdownOpen(false)}
               >
                 <svg
@@ -60,7 +60,7 @@ const Navbar = () => {
               </div>
             ) : (
               <div
-                className="lg:hidden cursor-pointer hover:scale-110 transition"
+                classNameName="lg:hidden cursor-pointer hover:scale-110 transition"
                 onClick={() => setDropdownOpen(true)}
               >
                 <svg
@@ -91,12 +91,12 @@ const Navbar = () => {
           </div>
         </div>
         {dropdownOpen && (
-          <div className="flex flex-col pb-5 lg:hidden text-2xl">
+          <div classNameName="flex flex-col pb-5 lg:hidden text-2xl">
             {navbarLinks.map((link) => (
               <Link
                 href={link.href}
                 key={link.name}
-                className="px-5 py-2 hover:bg-baseDark hover:text-white mb-2 mx-2 rounded-lg"
+                classNameName="px-5 py-2 hover:bg-baseDark hover:text-white mb-2 mx-2 rounded-lg"
               >
                 {link.name}
               </Link>

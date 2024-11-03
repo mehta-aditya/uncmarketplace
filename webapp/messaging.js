@@ -9,6 +9,8 @@ firebase.initializeMessage({
 
 })
 function ChatRoom() {
+
+    const scrolling = useRef()
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt').limit(25);
 
@@ -20,7 +22,7 @@ function ChatRoom() {
 
         e.preventDefault();
 
-        const {uid, photoURL } = auth.currentUser;
+        const { uid } = auth.currentUser;
 
         await messagesRef.add({
             text: formValue, 
@@ -29,6 +31,8 @@ function ChatRoom() {
         })
 
         setFormValue('');
+
+        scrolling.current.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
@@ -51,9 +55,13 @@ export default messaging;
 // model?
 return (
     <>
-        <div>
+        <main>
+
             {messages && messages.map(msg => <ChatMessage key = {msg.id} message = {msg} />)}
-        </div>  
+        
+             <div ref={scrolling}></div>
+
+        </main>  
 
         <form onSubmit={sendMessage}>
 

@@ -23,10 +23,10 @@ function Page() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="form-wrapper">
-        <h1 className="mt-60 mb-30">Sign up</h1>
-        <form onSubmit={handleForm} className="form">
+    <div classNameName="wrapper">
+      <div classNameName="form-wrapper">
+        <h1 classNameName="mt-60 mb-30">Sign up</h1>
+        <form onSubmit={handleForm} classNameName="form">
           <label htmlFor="email">
             <p>Email</p>
             <input

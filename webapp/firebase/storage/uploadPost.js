@@ -1,10 +1,11 @@
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase";
 import { getStorage } from "firebase/storage";
+import firebase_app from "@/firebase/config";
+import addData from "../firestore/addData";
 
 //uid, title, picture, price, description, and category
 
-const storage = getStorage(app);
+const storage = getStorage(firebase_app);
 
 export async function uploadPost(
   uid,

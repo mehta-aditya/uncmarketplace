@@ -25,7 +25,6 @@ export async function startChat(from, to, lid, description) {
     result = await setDoc(messageRef, {
       message: "Message about " + description,
       from: from,
-      to: to,
     });
   } catch (e) {
     console.log(e);
@@ -35,7 +34,7 @@ export async function startChat(from, to, lid, description) {
   return { result, error };
 }
 
-export async function sendMessage(chat_id, message, from, to) {
+export async function sendMessage(chat_id, message, from) {
   let result = null;
   let error = null;
 
@@ -44,7 +43,6 @@ export async function sendMessage(chat_id, message, from, to) {
     result = await setDoc(messageRef, {
       message: message,
       from: from,
-      to: to,
     });
   } catch (e) {
     console.log(e);
@@ -60,7 +58,7 @@ export async function queryChatMessages(chatId) {
 
   try {
     const messagesRef = collection(db, "chats", chatId, "messages");
-    const q = query(messagesRef, orderBy("timestamp", "asc"));
+    const q = query(messagesRef);
     const querySnapshot = await getDocs(q);
     result = querySnapshot.docs.map((doc) => ({
       id: doc.id,

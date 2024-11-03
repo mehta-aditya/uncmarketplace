@@ -3,31 +3,39 @@
 import { useEffect, useState } from "react";
 import { queryChatMessages, sendMessage } from "@/firebase/firestore/chatStore";
 import { useParams } from "next/navigation";
+import getData from "@/firebase/firestore/getData";
+import { useAuthContext } from "@/context/AuthContext";
 
 export default function ChatPage() {
   const params = useParams();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const [chatDocument, setChatDocument] = useState();
+  const { user } = useAuthContext();
+
+  const fetchMessages = async () => {
+    const { result, error } = await queryChatMessages(params.chatId);
+    setMessages(result);
+  };
 
   useEffect(() => {
     if (params.chatId) {
-      const fetchMessages = async () => {
-        const { result, error } = await queryChatMessages(params.chatId);
-        console.log(result);
-        setMessages(result);
-      };
+      setChatDocument(
+        getData("chats", params.chatId).then(({ result, err }) => result)
+      );
       fetchMessages();
     }
   }, [params.chatId]);
 
   const handleSendMessage = async () => {
-    await sendMessage(params.chatId, newMessage);
+    await sendMessage(params.chatId, newMessage, user.uid);
     setNewMessage("");
+    fetchMessages();
   };
 
   return (
     <div>
-      <h1>Chat with {params.chatId}</h1>
+      <h1>Chat with {chatDocument && chatDocument.from}</h1>
       <ul>
         {messages.map((msg) => (
           <li key={msg.id}>
@@ -37,7 +45,6 @@ export default function ChatPage() {
       </ul>
       <input
         type="text"
-        value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
         placeholder="Type a message"
       />

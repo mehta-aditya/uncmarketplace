@@ -18,7 +18,6 @@ function Page() {
       return console.log(error);
     }
 
-    // else successful
     console.log(result);
     return router.push("/marketplace");
   };
@@ -26,10 +25,12 @@ function Page() {
   return (
     <div>
       <header>
-        <a href="/"><p className="text-white">Home 🏠</p></a>
+        <a href="/">
+          <p className="text-white">Home 🏠</p>
+        </a>
       </header>
       <div className="form-wrapper">
-        <h1>Sign up</h1>
+        <h1>Sign In</h1>
         <form onSubmit={handleForm} className="form">
           <label htmlFor="email">
             <p>Email</p>
@@ -39,6 +40,7 @@ function Page() {
               name="email"
               id="email"
               placeholder="example@mail.com"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </label>
           <label htmlFor="password">
@@ -49,10 +51,11 @@ function Page() {
               name="password"
               id="password"
               placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </label>
           <button type="button" onClick={handleForm}>
-            Sign up
+            Sign In
           </button>
         </form>
       </div>

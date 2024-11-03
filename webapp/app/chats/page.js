@@ -7,16 +7,26 @@ import "../CSS/postpage.css";
 import React, { useEffect, useState } from "react";
 import { queryChats } from "@/firebase/firestore/chatStore";
 import { useAuthContext } from "@/context/AuthContext";
+import getData from "@/firebase/firestore/getData";
 
 function Chat({ chat }) {
+  const { user } = useAuthContext();
+
   return (
     <>
       <div className="chat-summary">
         <h2>Chat With: {chat.to}</h2>
-        <h3>About: {chat.lid}</h3>
-        <Link href={`/chats/${chat.id}`} className="hover:text-blue-600">
-          Open Chat
-        </Link>
+        <h3>About: {}</h3>
+
+        {chat.from == user.uid ? (
+          <p>Your Post</p>
+        ) : (
+          <>
+            <Link href={`/chats/${chat.id}`} className="hover:text-blue-600">
+              Open Chat
+            </Link>
+          </>
+        )}
       </div>
     </>
   );
@@ -24,7 +34,6 @@ function Chat({ chat }) {
 
 export default function Home() {
   const { user } = useAuthContext();
-
   const [chats, setChats] = useState([]);
   const [error, setError] = useState(null);
 

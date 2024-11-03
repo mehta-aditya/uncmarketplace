@@ -30,6 +30,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
 }
  main {
     display: grid;
@@ -50,6 +51,7 @@ nav ul li a {
     width: 250px;
     border: 2px solid #ccc;
     margin: 15px 0px;
+    border-radius: 7px;
 
  }
 

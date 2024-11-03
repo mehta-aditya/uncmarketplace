@@ -1,15 +1,26 @@
 "use client";
+import "../CSS/styles.css";
 import React from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-function Posting(image_uri, name, price) {
+function Posting({ image_uri, name, price }) {
   return (
     <main>
       <label>
         <section id="postings">
           <div>
-            <Image src={image_uri} />
+            {console.log(image_uri)}
+            {image_uri && (
+              <Image
+                src={image_uri}
+                alt={name}
+                height={250}
+                width={250}
+                unoptimized
+              />
+            )}
           </div>
         </section>
         {name} <label>{price}</label>
@@ -54,7 +65,7 @@ function Page() {
       </header>
 
       <Posting
-        image_uri="https://media.istockphoto.com/id/1189188305/photo/male-bighorn-sheep-ram-chewing-with-jaw-sideways-grinding-his-food.jpg?s=612x612&w=0&k=20&c=o7J5sPXmtekad_vyJ7A0aJ7dSTrqDMibyJ8JSliYi3s="
+        image_uri="https://t3.ftcdn.net/jpg/05/63/11/94/360_F_563119416_FYsrymsf3cf7pzkPufCgmFkF40Ea6kzy.jpg"
         name="ram painting"
         price="$100000"
       />

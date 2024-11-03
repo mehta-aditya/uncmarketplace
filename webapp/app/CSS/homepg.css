@@ -6,7 +6,7 @@
 
 div {
     background-size: cover;
-    background: url("rammybg.png");
-    background-color: skyblue;
+    background: url("/rammybg.png");
+    background-color: rgb(146, 187, 207);
     background-repeat: no-repeat;
 }

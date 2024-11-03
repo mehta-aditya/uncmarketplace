@@ -16,8 +16,8 @@ function Posting({ image_uri, name, price }) {
               <Image
                 src={image_uri}
                 alt={name}
-                height={250}
-                width={250}
+                height={135}
+                width={240}
                 unoptimized
               />
             )}
@@ -55,7 +55,7 @@ function Page() {
 
   return (
     <>
-      <h1>Tar Heel Trade</h1>
+      <h1 className="text-4xl">Tar Heel Trade</h1>
       <hr />
       <header>
         <nav>
@@ -63,7 +63,7 @@ function Page() {
             <ul>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   onClick={(e) => {
                     e.preventDefault();
                     runQuery("");
@@ -116,29 +116,33 @@ function Page() {
                   Miscellaneous
                 </a>
               </li>
+
+              <li>
+                <p className="text-white"> | </p>
+              </li>
+
               <li>
                 <a href="/listing">Make Posting</a>
               </li>
               <li>
-                <a href="#">Sign Out</a>
+                <a href="/">Sign Out</a>
               </li>
             </ul>
           </div>
         </nav>
       </header>
 
-      <ul>
+      <main>
         {listingArr.length > 0 &&
           listingArr.map((listing) => (
-            <li key={listing.id}>
-              <Posting
-                image_uri={listing.fileid}
-                name={listing.description}
-                price={"$"+listing.price}
-              />
-            </li>
+            <Posting
+              image_uri={listing.fileid}
+              name={listing.description}
+              price={"$" + listing.price}
+              key={listing.id}
+            ></Posting>
           ))}
-      </ul>
+      </main>
     </>
   );
 }

@@ -1,106 +1,101 @@
 body {
-    font-family: Ariel, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Ariel, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background-color:rgb(123, 175, 212);;
-    color: rgb(123, 175, 212);;
-    text-align: center;
-    padding: 10px 0;
+  background-color: rgb(123, 175, 212);
+  color: rgb(123, 175, 212);
+  text-align: center;
+  padding: 10px 0;
 }
 nav {
-    background-color: rgb(123, 175, 212);
-    padding: 10px 0;
+  background-color: rgb(123, 175, 212);
+  padding: 10px 0;
 }
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 nav ul li {
-    display: inline-block;
-    margin-right: 20px;
-
+  display: inline-block;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
 }
- main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    border-width: 1px;
-    border-color: black;
-    padding: 20px;
-    align-items: center;
-    margin-left: 10px;
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
 
-    
- }
+  padding: 20px;
+  align-items: top;
+  margin-left: 10px;
+}
 
- section {
-    background-color: gray;
-    height: 250px;
-    width: 250px;
-    border: 2px solid #ccc;
-    margin: 15px 0px;
-    border-radius: 7px;
+section {
+  background-color: gray;
+  height: 200px;
+  width: 240px;
+  border: 2px solid #ccc;
+  margin: 15px 0px;
+  margin-bottom: 10px;
+  border-radius: 7px;
+}
 
- }
-
- nav ul li a:focus {
-    color: black;
-    z-index: 1;
+nav ul li a:focus {
+  color: black;
+  z-index: 1;
 }
 
 h1 {
-    text-align: center;
-    background-color: rgb(123, 175, 212);
-    padding: 10px;
-    margin: 0;
-
+  text-align: center;
+  background-color: rgb(123, 175, 212);
+  padding: 10px;
+  margin: 0;
 }
 
 hr {
-    margin: 0;
-    padding: 0;
-    color: black;
-    height: 1px;
-    background-color: black;
-    border: black;
+  margin: 0;
+  padding: 0;
+  color: black;
+  height: 1px;
+  background-color: black;
+  border: black;
 }
 
 .pricelabel {
-    display: grid;
-    align-content: left;
+  display: grid;
+  align-content: left;
 }
 
 @media only screen and (max-width: 600px) {
-    main {
-        grid-template-columns: 1fr;
-        align-items: center;
-    }
+  main {
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
-    main {
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-    }
+  main {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
 
-    section {
-        height: 200px;
-        width: 200px;
-    }
+  section {
+    height: 200px;
+    width: 200px;
+  }
 
-    nav ul li {
-        margin-right: 10px;
-    }
+  nav ul li {
+    margin-right: 10px;
+  }
 }

@@ -4,7 +4,7 @@ import { uploadPost } from "@/firebase/storage/uploadPost";
 import { useAuthContext } from "@/context/AuthContext";
 import "../CSS/postpage.css";
 import React from "react";
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 
 function Page() {
   const [image, setImage] = useState();

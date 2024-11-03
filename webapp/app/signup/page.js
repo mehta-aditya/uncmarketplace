@@ -2,7 +2,6 @@
 import React from "react";
 import signUp from "@/firebase/auth/signup";
 import { useRouter } from "next/navigation";
-import "../CSS/logon.css";
 
 function Page() {
   const [email, setEmail] = React.useState("");
@@ -20,16 +19,24 @@ function Page() {
 
     return router.push("/signin");
   };
+
   return (
-    <div>
-      <header>
-        <a href="/homepage">Home</a>
-      </header>
-      <div className="form-wrapper">
-        <h1>Sign up</h1>
-        <form onSubmit={handleForm} className="form">
-          <label htmlFor="email">
-            <p>Email</p>
+    <div className="flex items-center justify-center min-h-screen bg-[#4b9cd3] font-sans text-[#13294b]">
+      <div className="w-full max-w-xs p-6 bg-white rounded-lg shadow-md">
+        <header className="mb-4">
+          <a href="/" className="text-xl text-[#13294b] hover:underline">
+            Home 🏠
+          </a>
+        </header>
+        <h1 className="text-2xl font-bold mb-6 text-center">Sign up</h1>
+        <form onSubmit={handleForm} className="flex flex-col gap-4">
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-left font-semibold mb-1"
+            >
+              Email
+            </label>
             <input
               required
               type="email"
@@ -37,10 +44,16 @@ function Page() {
               id="email"
               placeholder="example@mail.com"
               onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4b9cd3]"
             />
-          </label>
-          <label htmlFor="password">
-            <p>Password</p>
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-left font-semibold mb-1"
+            >
+              Password
+            </label>
             <input
               required
               type="password"
@@ -48,9 +61,13 @@ function Page() {
               id="password"
               placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#4b9cd3]"
             />
-          </label>
-          <button type="button" onClick={handleForm}>
+          </div>
+          <button
+            type="submit"
+            className="w-full py-2 mt-4 font-semibold text-white bg-[#13294b] rounded hover:bg-[#0d1f3c] focus:outline-none"
+          >
             Sign up
           </button>
         </form>

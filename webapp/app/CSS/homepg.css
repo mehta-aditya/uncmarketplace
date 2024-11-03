@@ -8,4 +8,5 @@ div {
     background-size: cover;
     background: url("rammybg.png");
     background-color: skyblue;
+    background-repeat: no-repeat;
 }

@@ -22,10 +22,10 @@ function Posting({ image_uri, name, price }) {
             )}
           </div>
         </section>
-        <label ><section class="postings">
+        <label ><section className="postings">
             <div>
          </div>
-        </section><strong>{price}</strong><label class="pricelabel"><em>{name}</em></label></label>
+        </section><strong>{price}</strong><label className="pricelabel"><em>{name}</em></label></label>
       </label>
     </main>
   );

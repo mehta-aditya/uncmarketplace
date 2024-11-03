@@ -24,6 +24,20 @@ function Page() {
   };
 
   return (
+<main>
+  <h1>Tar Heel Trade</h1>
+          <hr></hr>
+  <header>   
+    <nav>
+        <div id="sidenav">
+            <ul>
+                <li><a href="/marketplace">Home</a></li>
+                <li><a href="#">Sign Out</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    </header>
     <div>
       <div className="container">
         <form onSubmit={handleForm}>
@@ -94,6 +108,7 @@ function Page() {
         </form>
       </div>
     </div>
+    </main>
   );
 }
 

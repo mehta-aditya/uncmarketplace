@@ -24,7 +24,10 @@ function Page() {
     <div className="flex items-center justify-center min-h-screen bg-[#4b9cd3] font-sans text-[#13294b]">
       <div className="w-full max-w-xs p-6 bg-white rounded-lg shadow-md">
         <header className="mb-4">
-          <a href="/" className="text-xl text-[#13294b] hover:underline">
+          <a
+            href="/"
+            className="text-xl text-[#13294b] hover:underline"
+          >
             Home 🏠
           </a>
         </header>

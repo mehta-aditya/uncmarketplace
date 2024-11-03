@@ -14,7 +14,7 @@ function Posting({ image_uri, description, price, uid, pid, lid }) {
       <div
         className="flex flex-col items-center cursor-pointer"
         onClick={() => {
-          uid == pid
+          uid != pid
             ? () => {
                 startChat(uid, pid, lid, description);
                 router.push("/chats");

@@ -1,16 +1,17 @@
-import firebase_app from "../config";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import firebase_app from "../config.js";
+import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 
-const db = getFirestore(firebase_app);
-export default async function addData(collection, data) {
+const db = getFirestore(firebase_app, "uncmarket");
+
+export default async function addData(collectionName, data) {
   let result = null;
   let error = null;
 
   try {
-    result = await setDoc(doc(db, collection), data, {
-      merge: true,
-    });
-  } catch (e) {  
+    const docRef = doc(collection(db, collectionName));
+    result = await setDoc(docRef, data);
+  } catch (e) {
+    console.log(e);
     error = e;
   }
 

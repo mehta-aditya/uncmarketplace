@@ -31,7 +31,8 @@ export async function uploadPost(
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          addData("posts", {
+          console.log(downloadURL);
+          addData("/posts", {
             uid: uid,
             title: title,
             fileid: downloadURL,

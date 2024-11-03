@@ -1,0 +1,11 @@
+* {
+    text-align: center;
+    background-color: rgb(146, 187, 207)
+    
+}
+
+div {
+    background-size: cover;
+    background: url("rammybg.png");
+    background-color: skyblue;
+}

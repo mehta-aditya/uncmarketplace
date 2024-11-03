@@ -13,14 +13,8 @@ function Posting({ image_uri, description, price, uid, pid, lid }) {
     <main className="relative">
       <div
         className="flex flex-col items-center cursor-pointer"
-        onClick={() => {
-          uid != pid
-            ? () => {
-                startChat(uid, pid, lid, description);
-                router.push("/chats");
-              }
-            : true;
-        }}
+        onClick={() => {startChat(uid, pid, lid, description);
+          router.push("/chats");}}
       >
         <section id="postings" className="group">
           <div className="relative">

@@ -24,6 +24,7 @@ nav ul {
 nav ul li {
     display: inline-block;
     margin-right: 20px;
+
 }
 
 nav ul li a {
@@ -34,19 +35,22 @@ nav ul li a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 20px;
-
+    border-width: 1px;
+    border-color: black;
     padding: 20px;
     align-items: center;
     margin-left: 10px;
 
+    
  }
 
  section {
-    background-color: gray;
+    
     height: 250px;
     width: 250px;
-
+    border: 2px solid #ccc;
     margin: 15px 0px;
+
  }
 
 
@@ -55,7 +59,7 @@ h1 {
     background-color: rgb(123, 175, 212);
     padding: 10px;
     margin: 0;
-    
+
 }
 
 hr {
@@ -67,6 +71,26 @@ hr {
     border: black;
 }
 
-a {
-    border: black;
+
+@media only screen and (max-width: 600px) {
+    main {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    section {
+        height: 200px;
+        width: 200px;
+    }
+
+    nav ul li {
+        margin-right: 10px;
+    }
 }

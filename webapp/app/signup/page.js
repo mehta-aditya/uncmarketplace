@@ -22,35 +22,38 @@ function Page() {
     return router.push("/");
   };
   return (
-    <div classNameName="wrapper">
-      <div classNameName="form-wrapper">
-        <h1 classNameName="mt-60 mb-30">Sign up</h1>
-        <form onSubmit={handleForm} classNameName="form">
-          <label htmlFor="email">
-            <p>Email</p>
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              type="email"
-              name="email"
-              id="email"
-              placeholder="example@mail.com"
-            />
-          </label>
-          <label htmlFor="password">
-            <p>Password</p>
-            <input
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              type="password"
-              name="password"
-              id="password"
-              placeholder="password"
-            />
-          </label>
-          <button type="submit">Sign up</button>
-        </form>
-      </div>
+    <div>
+      <header><a href="/homepage">Home</a></header>
+    <div className="form-wrapper">
+      <h1>Sign up</h1>
+      <form onSubmit={handleForm} className="form">
+        <label htmlFor="email">
+          <p>Email</p>
+          <input
+
+            required
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@mail.com"
+          />
+        </label>
+        <label htmlFor="password">
+          <p>Password</p>
+          <input
+
+            required
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+          />
+        </label>
+        <button type="button" onClick={handleForm}>
+          Sign up
+        </button>
+      </form>
+    </div>
     </div>
   );
 }

@@ -1,12 +1,14 @@
 * {
-    text-align: center;
-    background-color: rgb(146, 187, 207)
-    
+  text-align: center;
 }
 
 div {
-    background-size: cover;
-    background: url("/rammybg.png");
+  background-size: cover;
+  background: url("/rammybg.png");
+  background-repeat: no-repeat;
+}
+
+
+.homeblue {
     background-color: rgb(146, 187, 207);
-    background-repeat: no-repeat;
 }

@@ -9,26 +9,22 @@ import { queryChats } from "@/firebase/firestore/chatStore";
 import { useAuthContext } from "@/context/AuthContext";
 import getData from "@/firebase/firestore/getData";
 
+
 function Chat({ chat }) {
   const { user } = useAuthContext();
 
   return (
-    <>
-      <div className="chat-summary">
-        <h2>Chat With: {chat.to}</h2>
-        <h3>About: {}</h3>
-
-        {chat.from == user.uid ? (
-          <p>Your Post</p>
-        ) : (
-          <>
-            <Link href={`/chats/${chat.id}`} className="hover:text-blue-600">
-              Open Chat
-            </Link>
-          </>
-        )}
-      </div>
-    </>
+    <div className="p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
+      <h2 className="text-xl font-semibold mb-2">
+        Chat About: {chat.description}
+      </h2>
+      <Link
+        href={`/chats/${chat.id}`}
+        className="text-blue-500 hover:text-blue-600 underline"
+      >
+        Open Chat
+      </Link>
+    </div>
   );
 }
 

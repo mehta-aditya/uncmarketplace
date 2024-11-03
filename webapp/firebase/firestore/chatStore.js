@@ -20,7 +20,12 @@ export async function startChat(from, to, lid, description) {
 
   try {
     const docRef = doc(collection(db, "chats"));
-    result = await setDoc(docRef, { from: from, to: to, lid: lid });
+    result = await setDoc(docRef, {
+      from: from,
+      to: to,
+      lid: lid,
+      description: description,
+    });
     const messageRef = doc(collection(db, "chats", docRef.id, "messages"));
     result = await setDoc(messageRef, {
       message: "Message about " + description,

@@ -4,16 +4,19 @@ import { uploadPost } from "@/firebase/storage/uploadPost";
 import { useAuthContext } from "@/context/AuthContext";
 import "../CSS/postpage.css";
 import React from "react";
+import Router from "next/router";
+
 function Page() {
   const [image, setImage] = useState();
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Clothing");
   const { user } = useAuthContext();
+  const router = useRouter();
 
   const handleForm = async (event) => {
     event.preventDefault();
-    uploadPost(
+    await uploadPost(
       user.uid,
       "placeholder title",
       image,
@@ -21,6 +24,7 @@ function Page() {
       description,
       category
     );
+    router.push("/marketplace");
   };
 
   React.useEffect(() => {

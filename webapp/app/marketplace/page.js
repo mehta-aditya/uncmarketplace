@@ -14,8 +14,12 @@ function Posting({ image_uri, description, price, uid, pid, lid }) {
       <div
         className="flex flex-col items-center cursor-pointer"
         onClick={() => {
-          startChat(uid, pid, lid, description);
-          router.push("/chats");
+          uid == pid
+            ? () => {
+                startChat(uid, pid, lid, description);
+                router.push("/chats");
+              }
+            : true;
         }}
       >
         <section id="postings" className="group">
@@ -31,9 +35,17 @@ function Posting({ image_uri, description, price, uid, pid, lid }) {
               />
             )}
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="text-white text-lg font-semibold">
-                Start Chat
-              </span>
+              {uid == pid ? (
+                <span className="text-white text-lg font-semibold">
+                  Your Post
+                </span>
+              ) : (
+                <>
+                  <span className="text-white text-lg font-semibold">
+                    Start Chat
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </section>

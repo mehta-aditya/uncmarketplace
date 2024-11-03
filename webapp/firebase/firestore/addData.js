@@ -10,7 +10,7 @@ export default async function addData(collection, data) {
     result = await setDoc(doc(db, collection), data, {
       merge: true,
     });
-  } catch (e) {
+  } catch (e) {  
     error = e;
   }
 

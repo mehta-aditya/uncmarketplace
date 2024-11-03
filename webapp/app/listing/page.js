@@ -23,9 +23,19 @@ function Page() {
     );
   };
 
+
+  React.useEffect(() => {
+    if (user == null) {
+      router.push("/");
+    } else {
+      runQuery("");
+    }
+  }, [user]);
+
   return (
+    
     <main>
-      <h1>Tar Heel Trade</h1>
+      <h1 className="text-4xl">Tar Heel Trade</h1>
       <hr></hr>
       <header>
         <nav>

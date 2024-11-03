@@ -5,31 +5,45 @@ import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import queryCategories from "@/firebase/firestore/queryCategories";
+import { startChat } from "@/firebase/firestore/chatStore";
 
-function Posting({ image_uri, name, price }) {
+function Posting({ image_uri, description, price, uid, pid, lid }) {
+  const router = useRouter();
   return (
-    <main>
-      <label>
-        <section id="postings">
-          <div>
+    <main className="relative">
+      <div
+        className="flex flex-col items-center cursor-pointer"
+        onClick={() => {
+          startChat(uid, pid, lid, description);
+          router.push("/chats");
+        }}
+      >
+        <section id="postings" className="group">
+          <div className="relative">
             {image_uri && (
               <Image
                 src={image_uri}
-                alt={name}
+                alt={description}
                 height={135}
                 width={240}
                 unoptimized
+                className="transition-transform duration-300 group-hover:scale-105"
               />
             )}
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span className="text-white text-lg font-semibold">
+                Start Chat
+              </span>
+            </div>
           </div>
         </section>
-        <label>
+        <label className="mt-2 text-center">
           <strong>{price}</strong>
-          <label className="pricelabel">
-            <em>{name}</em>
+          <label className="block text-gray-700">
+            <em>{description}</em>
           </label>
         </label>
-      </label>
+      </div>
     </main>
   );
 }
@@ -38,7 +52,6 @@ function Page() {
   const { user } = useAuthContext();
   const router = useRouter();
   const [listingArr, setListingArr] = React.useState([]);
-
   const runQuery = async (category) => {
     const arr = await queryCategories(category);
     console.log(arr);
@@ -125,6 +138,9 @@ function Page() {
                 <a href="/listing">Make Posting</a>
               </li>
               <li>
+                <a href="/chats">Chats</a>
+              </li>
+              <li>
                 <a href="/">Sign Out</a>
               </li>
             </ul>
@@ -137,9 +153,12 @@ function Page() {
           listingArr.map((listing) => (
             <Posting
               image_uri={listing.fileid}
-              name={listing.description}
+              description={listing.description}
               price={"$" + listing.price}
               key={listing.id}
+              uid={user.uid}
+              lid={listing.id}
+              pid={listing.uid}
             ></Posting>
           ))}
       </main>

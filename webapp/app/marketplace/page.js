@@ -11,7 +11,6 @@ function Posting({ image_uri, name, price }) {
       <label>
         <section id="postings">
           <div>
-            {console.log(image_uri)}
             {image_uri && (
               <Image
                 src={image_uri}
@@ -23,7 +22,10 @@ function Posting({ image_uri, name, price }) {
             )}
           </div>
         </section>
-        {name} <label>{price}</label>
+        <label ><section class="postings">
+            <div>
+         </div>
+        </section><strong>{price}</strong><label class="pricelabel"><em>{name}</em></label></label>
       </label>
     </main>
   );

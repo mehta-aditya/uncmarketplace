@@ -45,7 +45,7 @@ nav ul li a {
  }
 
  section {
-    
+    background-color: gray;
     height: 250px;
     width: 250px;
     border: 2px solid #ccc;
@@ -53,6 +53,10 @@ nav ul li a {
 
  }
 
+ nav ul li a:focus {
+    color: black;
+    z-index: 1;
+}
 
 h1 {
     text-align: center;
@@ -60,11 +64,6 @@ h1 {
     padding: 10px;
     margin: 0;
 
-}
-
-nav ul li a:focus {
-    color: black;
-    z-index: 1;
 }
 
 hr {
@@ -76,6 +75,10 @@ hr {
     border: black;
 }
 
+.pricelabel {
+    display: grid;
+    align-content: left;
+}
 
 @media only screen and (max-width: 600px) {
     main {

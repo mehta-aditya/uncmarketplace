@@ -2,7 +2,7 @@
 Tar Heel Trade allows UNC Students to create an account and create posts with unused items that they would like to sell, trade, or give away to other students on campus. The posts can include photos, a title, description, and asking price for each item. 
 
 # Tech Stack
-- React: Frontend
+- React, Next.js: Frontend
 - Firebase, JavaScript: Backend
 
 # Features

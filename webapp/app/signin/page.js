@@ -23,12 +23,12 @@ function Page() {
   };
 
   return (
-    <div>
-      <header>
+    <div className="bg-white">
+      <div>
         <a href="/">
           <p className="text-white">Home 🏠</p>
         </a>
-      </header>
+      </div>
       <div className="form-wrapper">
         <h1>Sign In</h1>
         <form onSubmit={handleForm} className="form">

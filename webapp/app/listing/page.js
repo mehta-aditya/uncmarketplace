@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { uploadPost } from "@/firebase/storage/uploadPost";
 import { useAuthContext } from "@/context/AuthContext";
 import "../CSS/postpage.css";
-
+import React from "react";
 function Page() {
   const [image, setImage] = useState();
   const [price, setPrice] = useState("");
@@ -23,17 +23,13 @@ function Page() {
     );
   };
 
-
   React.useEffect(() => {
     if (user == null) {
       router.push("/");
-    } else {
-      runQuery("");
     }
   }, [user]);
 
   return (
-    
     <main>
       <h1 className="text-4xl">Tar Heel Trade</h1>
       <hr></hr>
@@ -41,9 +37,12 @@ function Page() {
         <nav>
           <div id="sidenav">
             <ul>
-                <li><a href="/marketplace">Home</a></li>
-                <li><a href="/">Sign Out</a></li>
-
+              <li>
+                <a href="/marketplace">Home</a>
+              </li>
+              <li>
+                <a href="/">Sign Out</a>
+              </li>
             </ul>
           </div>
         </nav>

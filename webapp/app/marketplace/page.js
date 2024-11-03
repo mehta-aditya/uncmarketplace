@@ -4,6 +4,7 @@ import React from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import queryCategories from "@/firebase/firestore/queryCategories";
 
 function Posting({ image_uri, name, price }) {
   return (
@@ -22,10 +23,12 @@ function Posting({ image_uri, name, price }) {
             )}
           </div>
         </section>
-        <label ><section className="postings">
-            <div>
-         </div>
-        </section><strong>{price}</strong><label className="pricelabel"><em>{name}</em></label></label>
+        <label>
+          <strong>{price}</strong>
+          <label className="pricelabel">
+            <em>{name}</em>
+          </label>
+        </label>
       </label>
     </main>
   );
@@ -34,30 +37,84 @@ function Posting({ image_uri, name, price }) {
 function Page() {
   const { user } = useAuthContext();
   const router = useRouter();
+  const [listingArr, setListingArr] = React.useState([]);
+
+  const runQuery = async (category) => {
+    const arr = await queryCategories(category);
+    console.log(arr);
+    setListingArr(arr.result);
+  };
 
   React.useEffect(() => {
-    if (user == null) router.push("/");
+    if (user == null) {
+      router.push("/");
+    } else {
+      runQuery("");
+    }
   }, [user]);
 
   return (
     <>
       <h1>Tar Heel Trade</h1>
-      <hr></hr>
+      <hr />
       <header>
         <nav>
           <div id="sidenav">
             <ul>
               <li>
-                <a href="#">Home</a>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    runQuery("");
+                  }}
+                >
+                  Home
+                </a>
               </li>
               <li>
-                <a href="#">Clothes</a>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    runQuery("Clothing");
+                  }}
+                >
+                  Clothes
+                </a>
               </li>
               <li>
-                <a href="#">Tech</a>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    runQuery("Technology");
+                  }}
+                >
+                  Tech
+                </a>
               </li>
               <li>
-                <a href="#">School Supplies</a>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    runQuery("School Supplies");
+                  }}
+                >
+                  School Supplies
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    runQuery("Miscellaneous");
+                  }}
+                >
+                  Miscellaneous
+                </a>
               </li>
               <li>
                 <a href="#">Sign Out</a>
@@ -67,11 +124,18 @@ function Page() {
         </nav>
       </header>
 
-      <Posting
-        image_uri="https://t3.ftcdn.net/jpg/05/63/11/94/360_F_563119416_FYsrymsf3cf7pzkPufCgmFkF40Ea6kzy.jpg"
-        name="ram painting"
-        price="$100000"
-      />
+      <ul>
+        {listingArr.length > 0 &&
+          listingArr.map((listing) => (
+            <li key={listing.id}>
+              <Posting
+                image_uri={listing.fileid}
+                name={listing.description}
+                price={listing.price}
+              />
+            </li>
+          ))}
+      </ul>
     </>
   );
 }

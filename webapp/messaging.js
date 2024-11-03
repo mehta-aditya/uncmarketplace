@@ -10,7 +10,7 @@ firebase.initializeMessage({
 })
 function ChatRoom() {
 
-    const dummy = useRef()
+    const scrolling = useRef()
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt').limit(25);
 
@@ -32,7 +32,7 @@ function ChatRoom() {
 
         setFormValue('');
 
-        dummy.current.scrollIntoView({ behavior: 'smooth' });
+        scrolling.current.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
@@ -59,7 +59,7 @@ return (
 
             {messages && messages.map(msg => <ChatMessage key = {msg.id} message = {msg} />)}
         
-             <div ref={dummy}></div>
+             <div ref={scrolling}></div>
 
         </main>  
 

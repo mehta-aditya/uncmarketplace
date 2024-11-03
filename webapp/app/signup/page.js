@@ -2,6 +2,7 @@
 import React from "react";
 import signUp from "@/firebase/auth/signup";
 import { useRouter } from "next/navigation";
+import "../CSS/logon.css";
 
 function Page() {
   const [email, setEmail] = React.useState("");
@@ -19,7 +20,7 @@ function Page() {
 
     // else successful
     console.log(result);
-    return router.push("/");
+    return router.push("/signin");
   };
   return (
     <div>

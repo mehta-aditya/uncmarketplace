@@ -43,24 +43,15 @@ function Page() {
       <hr></hr>
       <header>
         <nav>
-          <div id="sidenav">
-            <ul>
-              <li>
-                <a id="" href="#">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#">Clothes</a>
-              </li>
-              <li>
-                <a href="#">Tech</a>
-              </li>
-              <li>
-                <a href="#">School Supplies</a>
-              </li>
-            </ul>
-          </div>
+            <div id="sidenav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Clothes</a></li>
+                    <li><a href="#">Tech</a></li>
+                    <li><a href="#">School Supplies</a></li>
+                    <li><a href="#">Sign Out</a></li>
+                </ul>
+            </div>
         </nav>
       </header>
 
